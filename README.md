@@ -13,3 +13,19 @@
 После выхода из конфигурационный файла вводим команду "sudo yum install wget", вводим пароль администратора, все это для установки утилита wget
 
 ![image](https://github.com/user-attachments/assets/35498f5c-92e3-4a15-bb71-1196d9d05caa)
+
+
+08.02.2025
+Первым делом мы вводим команду "sudo wget -P /etc/yum.repos.d/ https://download.docker.com/linux/centos/docker-ce.repo" - эта команда загружает файл репозитория Docker и сохраняет его в директории, где YUM может его использовать для установки и обновления пакетов Docker.
+
+![image](https://github.com/user-attachments/assets/267e8c02-ff29-440b-8d80-8c490a9aa509)
+
+
+Потом вводим команду "sudo yum install docker-ce docker-ce-cli containerd.io" - устанавливает необходимые пакеты для работы с Docker.
+
+![image](https://github.com/user-attachments/assets/6cc081dd-0be2-4c39-8ece-2d9c1482f38a)
+![image](https://github.com/user-attachments/assets/88d88688-1bc4-41dc-a94e-409d3f0762ab)
+
+"sudo systemctl enable docker --now" - включает службу Docker для автоматического запуска. 
+
+![image](https://github.com/user-attachments/assets/336c0a72-40df-4aaf-b3f0-be138cd7fb0b)

@@ -15,7 +15,7 @@
 ![image](https://github.com/user-attachments/assets/35498f5c-92e3-4a15-bb71-1196d9d05caa)
 
 
-08.02.2025
+                                                                                                    08.02.2025
 Первым делом мы вводим команду "sudo wget -P /etc/yum.repos.d/ https://download.docker.com/linux/centos/docker-ce.repo" - эта команда загружает файл репозитория Docker и сохраняет его в директории, где YUM может его использовать для установки и обновления пакетов Docker.
 
 ![image](https://github.com/user-attachments/assets/267e8c02-ff29-440b-8d80-8c490a9aa509)
@@ -29,3 +29,38 @@
 "sudo systemctl enable docker --now" - включает службу Docker для автоматического запуска. 
 
 ![image](https://github.com/user-attachments/assets/336c0a72-40df-4aaf-b3f0-be138cd7fb0b)
+
+
+
+                                                                                              15.02.2025
+Первоночально вводим команду "COMVER=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep 'tag_name' | cut -d\" -f4)" она используется для получения номера последней версии Docker 
+Следом пишим команду "sudo curl -L "https://github.com/docker/compose/releases/download/$COMVER/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose"  эта команда загружает исполняемый файл Docker Compose с GitHub и устанавливает его в систему
+"sudo chmod +x /usr/bin/docker-compose"после выполнения этой команды вы сможете запускать Docker Compose из терминала, просто вводя команду "docker-compose"
+Эту команду "docker-compose --version" вводим для тогда чтобы узнать версию docker
+
+![image](https://github.com/user-attachments/assets/e1ff69db-fb72-4d93-88e0-234fc56b9395)
+
+эта команда "sudo yum install git" для установки системы Git
+
+![image](https://github.com/user-attachments/assets/3f057d30-f6f3-4e65-b420-f61fd52e6f9f)
+![image](https://github.com/user-attachments/assets/0c2a759d-edb8-43ae-8b74-a43befe0320f)
+![image](https://github.com/user-attachments/assets/f7bd0cb2-8b44-4e31-9aa7-dc6324721d09)
+
+
+После устоновки мы пишим команду "git clone https://github.com/skl256/grafana_stack_for_docker.git"
+
+![image](https://github.com/user-attachments/assets/3fb73322-dda5-4a23-aa09-dadd40df5310)
+
+
+далее пишим команды:
+cd grafana_stack_for_docker - эта команда перемещает вас в каталог
+sudo mkdir -p /mnt/common_volume/swarm/grafana/config - эта команда создает каталог 
+sudo mkdir -p /mnt/common_volume/grafana/{grafana-config,grafana-data,prometheus-data} - 
+sudo chown -R $(id -u):$(id -g) {/mnt/common_volume/swarm/grafana/config,/mnt/common_volume/grafana}
+touch /mnt/common_volume/grafana/grafana-config/grafana.ini
+cp config/* /mnt/common_volume/swarm/grafana/config/
+mv grafana.yaml docker-compose.yaml
+
+![image](https://github.com/user-attachments/assets/5260a30e-5cbd-44f0-8102-ab682eca2e7c)
+![image](https://github.com/user-attachments/assets/4449081b-6a3e-44d0-b97a-d7622e883d41)
+

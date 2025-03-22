@@ -53,20 +53,36 @@
 
 
 далее пишим команды:
-cd grafana_stack_for_docker - эта команда перемещает вас в каталог
+`cd grafana_stack_for_docker` - эта команда перемещает вас в каталог
 
-sudo mkdir -p /mnt/common_volume/swarm/grafana/config - эта команда создает каталог 
+`sudo mkdir -p /mnt/common_volume/swarm/grafana/config` - эта команда создает каталог 
 
-sudo mkdir -p /mnt/common_volume/grafana/{grafana-config,grafana-data,prometheus-data} - создание директорий для Grafana
+`sudo mkdir -p /mnt/common_volume/grafana/{grafana-config,grafana-data,prometheus-data}` - создание директорий для Grafana
 
-sudo chown -R $(id -u):$(id -g) {/mnt/common_volume/swarm/grafana/config,/mnt/common_volume/grafana} - изменение владельца директорий
+`sudo chown -R $(id -u):$(id -g) {/mnt/common_volume/swarm/grafana/config,/mnt/common_volume/grafana}` - изменение владельца директорий
 
-touch /mnt/common_volume/grafana/grafana-config/grafana.ini - создание файла конфигурации
+`touch /mnt/common_volume/grafana/grafana-config/grafana.ini` - создание файла конфигурации
 
-cp config/* /mnt/common_volume/swarm/grafana/config/ - копирование конфигурационных файлов
-
-mv grafana.yaml docker-compose.yaml - переименование файла
+`cp config/* /mnt/common_volume/swarm/grafana/config/` - копирование конфигурационных файлов
 
 ![image](https://github.com/user-attachments/assets/5260a30e-5cbd-44f0-8102-ab682eca2e7c)
 ![image](https://github.com/user-attachments/assets/4449081b-6a3e-44d0-b97a-d7622e883d41)
 
+ДОЛГ
+Команда `mv grafana.yaml docker-compose.yaml` - открыла файл docker-compose.yaml в текстовом редакторе vi.
+Чтобы добавить изменение в текстовом редакторе нужно нажать кнопку insert.
+В текстовом редакторе после services пишем node-exporter. Что бы сохранить изменения нужно нажать Esc и написать :wq!
+![image](https://github.com/user-attachments/assets/234714b2-163a-4301-b9d2-0a666eb021e3)
+
+![image](https://github.com/user-attachments/assets/6fb6e001-eead-4740-814c-fc8b71382b76)
+
+
+![image](https://github.com/user-attachments/assets/7b30130c-e4f3-43db-a710-133aa0db4f59)
+
+![image](https://github.com/user-attachments/assets/1a90284b-7682-41cf-a6c8-90ed3469e2f5)
+
+![image](https://github.com/user-attachments/assets/f223feb6-c57f-4eb5-a7ff-7b0619323eae)
+
+![image](https://github.com/user-attachments/assets/ab7fcae9-11c3-4c10-b5a9-a2f8fe896c17)
+
+![image](https://github.com/user-attachments/assets/a37da795-356e-40ab-8232-ae1dc893777e)

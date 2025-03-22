@@ -74,7 +74,8 @@
 В текстовом редакторе после services пишем node-exporter. Что бы сохранить изменения нужно нажать Esc и написать :wq!
 ![image](https://github.com/user-attachments/assets/234714b2-163a-4301-b9d2-0a666eb021e3)
 
-![image](https://github.com/user-attachments/assets/6fb6e001-eead-4740-814c-fc8b71382b76)
+![image](https://github.com/user-attachments/assets/6cda7b84-2dc6-434e-bb0e-7fb864142618)
+
 
 
 ![image](https://github.com/user-attachments/assets/7b30130c-e4f3-43db-a710-133aa0db4f59)

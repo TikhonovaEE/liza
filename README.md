@@ -1,4 +1,4 @@
-# liza
+# Тихонова
 Сначала мы ввели `код sudo yum install wget`, с помощью этой команды мы получаем ошибку "is not in the sudoers file" чтобы исправить ошибку вводим команду `su root`, далее вводим пароль администратора 
 ![image](https://github.com/user-attachments/assets/087ce2c4-157a-426f-a8fa-4819b58582c6)
 
@@ -68,7 +68,6 @@
 ![image](https://github.com/user-attachments/assets/5260a30e-5cbd-44f0-8102-ab682eca2e7c)
 ![image](https://github.com/user-attachments/assets/4449081b-6a3e-44d0-b97a-d7622e883d41)
 
-ДОЛГ
 Команда `mv grafana.yaml docker-compose.yaml` - открыла файл docker-compose.yaml в текстовом редакторе vi.
 Чтобы добавить изменение в текстовом редакторе нужно нажать кнопку insert.
 В текстовом редакторе после services пишем node-exporter. Что бы сохранить изменения нужно нажать Esc и написать :wq!
@@ -76,12 +75,22 @@
 
 ![image](https://github.com/user-attachments/assets/6cda7b84-2dc6-434e-bb0e-7fb864142618)
 
-
-
+Далее пишем команду `sudo vi prometheus.yaml ` для открытия файла prometheus.yaml в текстовом редакторе vi.
 ![image](https://github.com/user-attachments/assets/7b30130c-e4f3-43db-a710-133aa0db4f59)
 
 ![image](https://github.com/user-attachments/assets/1a90284b-7682-41cf-a6c8-90ed3469e2f5)
 
+Нужно перейти на сайт `localhost:3000`. Логин и пароль: `admin`. Потом нужно создать Dashboards.Для этого нужно `Home > Connections > Data sources > Add data source. После этого нужно +Add visualization > Configure a new data source > Prometheus`.
+
+Настройки:
+
+Связь: `http://prometheus:9090`
+
+Аутентификация: `Basic authentication`
+
+После того как все сделали нажимаем `Save & test`
+Cоздав Dashboardsимпортируем его `Home -> Dashboards -> Import dashboard`
+В поле нужно написать `1860-> Load Select Prometheus-> Import->Название Prometheus`
 ![image](https://github.com/user-attachments/assets/f223feb6-c57f-4eb5-a7ff-7b0619323eae)
 
 ![image](https://github.com/user-attachments/assets/ab7fcae9-11c3-4c10-b5a9-a2f8fe896c17)
@@ -89,8 +98,10 @@
 ![image](https://github.com/user-attachments/assets/a37da795-356e-40ab-8232-ae1dc893777e)
 
 VictoriaMetrics!
+Пишем команду `echo -e "# TYPE light_metric1 gauge\nlight_metric1 0" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus` 
 ![image](https://github.com/user-attachments/assets/ce044ac1-cf3d-4cd6-95b9-842d38bccfa3)
 
+Далее заходим в браузер и ввожу текстовый ввод `http://localhost:8428`.В открывшемся окне нажимаем `vmui`. Потом ввожу переменную `light_metric1` и нажала кнопку Выполнить запрос.
 ![image](https://github.com/user-attachments/assets/770d29d4-6d60-4b05-bae0-5ca40fab91ef)
-
+Создаём новую приборную панель с принцем, созданным как Прометей. В коде `echo -e "# TYPE light_metric1 gauge\nlight_metric1 0" | curl --data-binary @- http://localhost:8428/api/v1/import/prometheus` поменяла значения на (600 и 350)
 ![image](https://github.com/user-attachments/assets/041973ee-9014-465f-8e32-d33a496b2f27)
